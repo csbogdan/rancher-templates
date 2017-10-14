@@ -9,4 +9,4 @@ confluence:
   - opt-atlassian-confluence-logs:/opt/atlassian/confluence/logs
   - var-atlassian-confluence:/var/atlassian/confluence
   stdin_open: true
-  volume_driver: convoy-nfs
+  volume_driver: rancher-nfs
