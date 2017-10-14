@@ -1,0 +1,6 @@
+nfs-server:
+  command: "${nfs_exports}"
+  image: "erezhorev/dockerized_nfs_server:latest"
+  privileged: true
+  volumes:
+    - "${exports_path}:/exports"

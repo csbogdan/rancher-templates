@@ -1,0 +1,28 @@
+gogs-server:
+  image: gogs/gogs
+  container_name: gogs-server
+  ports:
+    - "${HTTP_PORT}:3000"
+    - "${SSH_PORT}:22"
+  volumes:
+    - ${DATA_VOLUME}:/data
+  links:
+    - gogs-db:mysql
+  environment:
+    - VIRTUAL_HOST=${VHOST_DOMAIN_NAME}
+    - VIRTUAL_PORT=3000
+    - LETSENCRYPT_HOST=${VHOST_DOMAIN_NAME}
+    - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
+
+gogs-db:
+  image: mysql:5.6
+  container_name: gogs-db
+  volumes:
+    - ${DB_VOLUME}:/var/lib/mysql
+  ports:
+    - "${MYSQL_PORT}:3306"
+  environment:
+    - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    - MYSQL_DATABASE=${MYSQL_DATABASE_NAME}
+    - MYSQL_USER=${MYSQL_USER}
+    - MYSQL_PASSWORD=${MYSQL_PASSWORD}

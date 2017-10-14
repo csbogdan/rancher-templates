@@ -1,0 +1,18 @@
+.catalog:
+  name: "nfs-server"
+  version: "1.0.0-rancher2"
+  description: "a nfs server"
+  minimum_rancher_version: "1.0.2"
+  questions:
+  - variable: "nfs_exports"
+    label: "Exports"
+    description: "Space-separated list of subdirectories of /exports to export via nfs."
+    required: true
+    type: "string"
+  - variable: "exports_path"
+    label: "Export Volume Path"
+    description: "Path of the host to export via nfs at /exports."
+    required: true
+    type: "string"
+nfs-server:
+  scale: 1

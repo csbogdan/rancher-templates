@@ -1,1 +1,1 @@
-# rancher-templates
+Coming Soon(tm)

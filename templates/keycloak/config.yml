@@ -1,0 +1,5 @@
+name: Keycloak
+description: |
+  Keycloak
+version: 2.1.0
+category: auth
